@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIRST CATCH</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f0e6;
+    color: #0a1f44;
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    padding: 25px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background: #f5f0e6;
+    z-index: 1000;
+}
+
+/* NAV LOGO */
+.logo {
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    align-items: center;
+}
+
+.logo .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo .header-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.logo .first {
+    font-size: 12px;
+    letter-spacing: 6px;
+}
+
+.logo .catch-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo .catch {
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+.logo .side-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0a1f44;
+    margin-left: 40px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Background Video */
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Dark Overlay */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,31,68,0.65);
+    z-index: 2;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #f5f0e6;
+}
+
+/* PNG HERO LOGO */
+.hero-logo {
+    width: 400px;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.hero button {
+    padding: 12px 30px;
+    background: #f5f0e6;
+    color: #0a1f44;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.hero button:hover {
+    background: #0a1f44;
+    color: #f5f0e6;
+}
+
+/* FEATURED SECTION */
+.featured {
+    padding: 120px 80px;
+    text-align: center;
+    scroll-margin-top: 120px;
+}
+
+.featured h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.product {
+    cursor: pointer;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.product h3 {
+    margin-top: 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.product p {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* CONTACT SECTION */
+.contact {
+    padding: 100px 40px;
+    text-align: center;
+    background: #0a1f44;
+    color: #f5f0e6;
+    scroll-margin-top: 120px;
+}
+
+.contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.contact p {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.contact a {
+    color: #f5f0e6;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.contact a:hover {
+    opacity: 1;
+}
+
+/* FOOTER */
+footer {
+    padding: 30px;
+    text-align: center;
+    font-size: 12px;
+    background: #081730;
+    color: #f5f0e6;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .logo .side-icon {
+        width: 30px; 
+        height: 30px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">
+        <div class="logo-row">
+            <span class="first">FIRST</span>
+        </div>
+        <div class="catch-row">
+            <img src="fishheader1.png" alt="Left Icon" class="side-icon">
+            <span class="catch">CATCH</span>
+            <img src="headerfish2.png" alt="Right Icon" class="side-icon">
+        </div>
+    </div>
+    <div class="nav-links">
+        <a href="#section2">SHOP</a>
+        <a href="#contact-section">CONTACT</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="BANNERBACKDROP.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+        <img src="FISHLOGO.png" alt="FIRST CATCH Logo" class="hero-logo">
+        <p>PREMIUM STREETWEAR</p>
+        <button onclick="document.getElementById('section2').scrollIntoView({ behavior: 'smooth' })">
+            SHOP NOW
+        </button>
+    </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured" id="section2">
+    <h2>First Catch Collection</h2>
+    <div class="product-grid">
+        <div class="product">
+          <a href="PRODUCT_SHIRT.HTML">
+            <img src="7.png" alt="Product 1">
+            <h3>Guppy Tee Midnight</h3>
+            <p>₱600</p>
+          </a>
+        </div>
+
+        <div class="product">
+          <a href="PRODUCT_SHIRT3.html">
+            <img src="8.png" alt="Product 2">
+            <h3>Midnight Haul Green</h3>
+            <p>₱600</p>
+          </a>
+        </div>
+        
+        <div class="product">
+          <a href="PRODUCT_SHIRT4 copy.html">
+            <img src="9.png" alt="Product 3">
+            <h3>Midnight Haul Black</h3>
+            <p>₱600</p>
+          </a>
+        </div>
+          
+        <div class="product">
+          <a href="PRODUCT_SHIRT5.HTML">
+            <img src="10.png" alt="Product 4">
+            <h3>Guppy Tee Coral</h3>
+            <p>₱600</p>
+          </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact-section">
+    <h2>CONTACT</h2>
+    <p>Email: hooked.firstcatch@gmail.com</p>
+    <p>Instagram: <a href="#">@hooked.firstcatch</a></p>
+</section>
+
+<footer>
+    © 2026 FIRST CATCH — ALL RIGHTS RESERVED
+</footer>
+
+</body>
+</html>
